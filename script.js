@@ -1,39 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const openBtn = document.getElementById("openBtn");
-    const fileInput = document.getElementById("fileInput");
-    const fileCard = document.getElementById("fileCard");
+const openBtn=document.getElementById("openBtn");
 
-    openBtn.addEventListener("click", () => {
-        fileInput.click();
-    });
+const aboutBtn=document.getElementById("aboutBtn");
 
-    fileInput.addEventListener("change", () => {
+const fileInput=document.getElementById("fileInput");
 
-        if(fileInput.files.length === 0) return;
+const status=document.getElementById("statusText");
 
-        const file = fileInput.files[0];
+const fileName=document.getElementById("fileName");
 
-        const sizeKB = (file.size / 1024).toFixed(2);
+const fileSize=document.getElementById("fileSize");
 
-        fileCard.innerHTML = `
-            <h2>📄 ${file.name}</h2>
-            <p>📦 ${sizeKB} KB</p>
-            <p>🟢 Ready to parse</p>
-        `;
+openBtn.onclick=()=>{
 
-    });
+fileInput.click();
 
-    document.getElementById("aboutBtn").addEventListener("click", () => {
+};
 
-        alert(
+fileInput.onchange=()=>{
+
+if(fileInput.files.length===0)return;
+
+const file=fileInput.files[0];
+
+status.innerHTML="🟢 File loaded successfully";
+
+fileName.innerHTML="📄 "+file.name;
+
+fileSize.innerHTML="📦 "+(file.size/1024).toFixed(2)+" KB";
+
+};
+
+aboutBtn.onclick=()=>{
+
+alert(
 `🧱 BuildMate BE
 
-Version : v0.3 Alpha
+Version : v0.4 Alpha
 
-Made with ❤️`
-        );
+Developer :
+GiaHuy + ChatGPT ❤️`
+);
 
-    });
+};
 
 });
