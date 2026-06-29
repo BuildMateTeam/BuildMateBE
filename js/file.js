@@ -40,7 +40,7 @@ function initializeFileModule() {
         updateFileInfo(file);
 
         // Gọi parser
-        const structure = parseStructure(file);
+        const structure = parseStructure(file);updateStructureInfo(structure);
 
         console.log("Structure Data:");
         console.log(structure);
