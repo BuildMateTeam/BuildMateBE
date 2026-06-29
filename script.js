@@ -1,27 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     const openBtn = document.getElementById("openBtn");
     const fileInput = document.getElementById("fileInput");
+    const fileCard = document.getElementById("fileCard");
 
-    openBtn.addEventListener("click", function () {
-
+    openBtn.addEventListener("click", () => {
         fileInput.click();
+    });
+
+    fileInput.addEventListener("change", () => {
+
+        if(fileInput.files.length === 0) return;
+
+        const file = fileInput.files[0];
+
+        const sizeKB = (file.size / 1024).toFixed(2);
+
+        fileCard.innerHTML = `
+            <h2>📄 ${file.name}</h2>
+            <p>📦 ${sizeKB} KB</p>
+            <p>🟢 Ready to parse</p>
+        `;
 
     });
 
-    fileInput.addEventListener("change", function () {
-
-        if(this.files.length==0) return;
-
-        const file=this.files[0];
+    document.getElementById("aboutBtn").addEventListener("click", () => {
 
         alert(
-`📄 ${file.name}
+`🧱 BuildMate BE
 
-📦 ${(file.size/1024).toFixed(2)} KB
+Version : v0.3 Alpha
 
-✅ Ready to parse`
-);
+Made with ❤️`
+        );
 
     });
 
