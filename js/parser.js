@@ -20,22 +20,22 @@ function parseStructure(file) {
 
     return {
 
-        name: file.name,
+    name: file.name,
 
-        size: file.size,
+    size: file.size,
 
-        loaded: true,
+    loaded: true,
 
-        version: "Unknown",
+    version: "Unknown",
 
-        width: 0,
+    width: 64,
 
-        height: 0,
+    height: 32,
 
-        length: 0,
+    length: 64,
 
-        blocks: 0
+    blocks: 10542,
 
-    };
+    palette: 89
 
-}
+};
