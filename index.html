@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BuildMate BE</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildMate BE</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🧱 BuildMate BE</h1>
+    <h1>🧱 BuildMate BE</h1>
 
-  <p>Minecraft Bedrock Structure Viewer</p>
+    <p>Minecraft Bedrock Structure Viewer</p>
 
-  <button id="openBtn">📂 Open Structure</button>
+    <button id="openBtn">📂 Open Structure</button>
 
-  <input
-type="file"
-id="fileInput"
-accept=".mcstructure"
-style="display:none;">
+    <input
+        type="file"
+        id="fileInput"
+        accept=".mcstructure"
+        hidden>
 
-  <button id="aboutBtn">❤️ About</button>
+    <button id="aboutBtn">❤️ About</button>
+
+    <div id="fileCard" class="file-card">
+
+        <h2>📄 No file selected</h2>
+
+        <p>Select a .mcstructure file.</p>
+
+    </div>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
