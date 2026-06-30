@@ -41,7 +41,11 @@ function initializeFileModule() {
 
         // Gọi parser
         const structure = parseStructure(file);updateStructureInfo(structure);
+updateStructureInfo(structure);
 
+console.log("========== Structure ==========");
+console.table(structure);
+console.log("===============================");
         console.log("Structure Data:");
         console.log(structure);
 
