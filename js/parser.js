@@ -1,41 +1,33 @@
 // =====================================
 // BuildMate BE
 // parser.js
-// Version 0.6 Alpha
+// Version 0.6 Stable
 // =====================================
-
-/*
- * Đây là module đọc file .mcstructure
- * Hiện tại mới là nền móng.
- * Sau này sẽ đọc NBT thật.
- */
 
 function parseStructure(file) {
 
-    console.log("================================");
-    console.log("BuildMate BE Parser");
-    console.log("Reading:", file.name);
-    console.log("Size:", file.size, "bytes");
-    console.log("================================");
-
     return {
 
-    name: file.name,
+        name: file.name,
 
-    size: file.size,
+        size: file.size,
 
-    loaded: true,
+        extension: file.name.split(".").pop(),
 
-    version: "Unknown",
+        loaded: true,
 
-    width: 64,
+        width: "?",
 
-    height: 32,
+        height: "?",
 
-    length: 64,
+        length: "?",
 
-    blocks: 10542,
+        blocks: "?",
 
-    palette: 89
+        palette: "?",
 
-};
+        created: new Date().toLocaleString()
+
+    };
+
+}
