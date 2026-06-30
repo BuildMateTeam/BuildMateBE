@@ -1,6 +1,6 @@
 // =====================================
-// BuildMate BE File Module
-// Version 0.6 Alpha
+// BuildMate BE
+// File Module v0.6.2 Stable
 // =====================================
 
 function initializeFileModule() {
@@ -8,28 +8,36 @@ function initializeFileModule() {
     const openBtn = document.getElementById("openBtn");
     const fileInput = document.getElementById("fileInput");
 
-    openBtn.addEventListener("click", () => {
+    // Chống gắn event nhiều lần
+    openBtn.onclick = null;
+    fileInput.onchange = null;
+
+    openBtn.onclick = function () {
+
+        // Reset để chọn lại cùng file vẫn hoạt động
+        fileInput.value = "";
+
         fileInput.click();
-    });
 
-    fileInput.addEventListener("change", () => {
+    };
 
-        if (!fileInput.files || fileInput.files.length === 0) {
+    fileInput.onchange = function () {
+
+        const file = fileInput.files[0];
+
+        if (!file) {
 
             setStatus("🟡 No file selected", "loading");
             resetFileInfo();
+
             return;
 
         }
-
-        const file = fileInput.files[0];
 
         if (!file.name.toLowerCase().endsWith(".mcstructure")) {
 
             setStatus("❌ Invalid file", "error");
             resetFileInfo();
-
-            fileInput.value = "";
 
             return;
 
@@ -39,24 +47,22 @@ function initializeFileModule() {
 
         updateFileInfo(file);
 
-        // Gọi parser
-        const structure = parseStructure(file);updateStructureInfo(structure);
-updateStructureInfo(structure);
+        const structure = parseStructure(file);
 
-console.log("========== Structure ==========");
-console.table(structure);
-console.log("===============================");
-        console.log("Structure Data:");
-        console.log(structure);
+        if (typeof updateStructureInfo === "function") {
 
-        setTimeout(() => {
+            updateStructureInfo(structure);
+
+        }
+
+        console.table(structure);
+
+        setTimeout(function () {
 
             setStatus("🟢 Ready", "success");
 
-            fileInput.value = "";
-
         }, 200);
 
-    });
+    };
 
 }
