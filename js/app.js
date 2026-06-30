@@ -1,19 +1,27 @@
 // =====================================
 // BuildMate BE
 // app.js
-// Version 0.5 Foundation
+// Version 0.6 Stable
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("🧱 BuildMate BE Started");
+    console.log("🧱 BuildMate BE v0.6 Stable");
 
-    // Khởi tạo giao diện
+    // Reset giao diện
     resetFileInfo();
+
+    updateStructureInfo({
+        width: "?",
+        height: "?",
+        length: "?",
+        blocks: "?",
+        palette: "?"
+    });
 
     setStatus("🟢 Waiting for structure...", "success");
 
-    // Khởi tạo hệ thống đọc file
+    // Khởi động module chọn file
     initializeFileModule();
 
     // Nút About
@@ -24,13 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(
 `🧱 BuildMate BE
 
-Version: v0.5 Foundation
+Version : v0.6 Stable
 
-Developer:
-GiaHuy + ChatGPT ❤️
+Developer
+HoangHuy 🤝
+ChatGPT 🤖
 
-Next:
-NBT Reader`
+Status
+Foundation Complete
+
+Next Target
+Read .mcstructure
+Viewer 3D`
             );
 
         });
